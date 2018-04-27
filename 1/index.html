@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pierwszy komponent w React.js</title>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone/babel.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+    function MyFirstComponent() {
+        return (
+            <div>
+                <h1>Mój pierwszy komponent</h1>
+                <h2>Czy działa?</h2>
+            </div>
+        );
+    };
+
+    function MySecondComponent() {
+        return (
+            <div>
+                <h1>Kolejny komponent</h1>
+            </div>
+        );
+    };
+
+    function MyThirdComponent() {
+        return (
+            <div>
+                <h1>I jeszcze jeden komponent</h1>
+            </div>
+        );
+    };
+
+    ReactDOM.render(
+        <React.Fragment>
+            <MyFirstComponent/>
+            <MySecondComponent/>
+            <MyThirdComponent/>
+        </React.Fragment>,
+      document.getElementById('app')
+    );
+  </script>
+</body>
+
+</html>
