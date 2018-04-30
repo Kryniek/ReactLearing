@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pierwszy komponent w React.js</title>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone/babel.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+
+        class App extends React.Component {
+            constructor (){
+                super();
+                this.state = {
+                    counter: 0,
+                    plusButtonCounter: 0,
+                    minusButtonCounter: 0
+                };
+            }
+            render () {
+                return (
+                    <div>
+                        <button onClick={this.increaseCounter.bind(this)} className="ui olive button">+</button>
+                        <output>{this.state.counter}</output>
+                        <button onClick={this.decreaseCounter.bind(this)} className="ui olive button">-</button>
+                        <br></br>
+                        <p>Ile kliknięć w "+": {this.state.plusButtonCounter}</p>
+                        <br></br>
+                        <p>Ile kliknięć w "-": {this.state.minusButtonCounter}</p>
+                    </div>
+                );
+            }
+            increaseCounter(){
+                this.setState({
+                    counter: this.state.counter + 1,
+                    plusButtonCounter: this.state.plusButtonCounter + 1
+                });
+            }
+            decreaseCounter(){
+                this.setState({
+                    counter: this.state.counter - 1,
+                    minusButtonCounter: this.state.minusButtonCounter + 1
+                });
+            }
+        }
+
+        ReactDOM.render(<App/>,document.getElementById('app'));
+    </script>
+</body>
+
+</html>
